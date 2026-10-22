@@ -4,7 +4,7 @@ An AI assistant for a family-run, 3-store footwear retailer. Customers ask in **
 
 > Built on a real problem: my family runs a 25+ year multi-store footwear business. Customers walk out when their size isn't on the shelf, staff can't see stock at other branches, and nobody records what people asked for and didn't find.
 
-**Live demo:** `<your-app>.streamlit.app` · **Stack:** Python · Streamlit · Groq (gpt-oss-120b / 20b) · SQLite · BM25 + fastembed (bge-small) · RRF · pypdf
+**Live demo:** https://stride-ai-q6ueaj88lcwzdv2rz4ca7l.streamlit.app · **Stack:** Python · Streamlit · Groq (gpt-oss-120b / 20b) · SQLite · BM25 + fastembed (bge-small) · RRF · pypdf
 
 ---
 
@@ -62,7 +62,7 @@ eval/                 eval set + metrics script
 ## Run locally (any terminal)
 
 ```bash
-git clone https://github.com/<you>/stride-ai && cd stride-ai
+git clone https://github.com/Virajsonagra07/stride-ai && cd stride-ai
 python -m venv .venv && source .venv/bin/activate      # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 export GROQ_API_KEY=gsk_...                              # free key: console.groq.com/keys
