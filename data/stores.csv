@@ -1,0 +1,4 @@
+store_id,store_name,area,hours,phone,landmark
+S1,Main Bazaar Store,Main Bazaar,10:00 AM - 9:30 PM (all days),+91-00000-00001,Opposite Clock Tower
+S2,Station Road Store,Station Road,10:30 AM - 9:00 PM (closed Tuesday),+91-00000-00002,Next to Railway Station gate 2
+S3,City Mall Store,"City Mall, 1st floor",11:00 AM - 10:00 PM (all days),+91-00000-00003,"1st floor, near food court"

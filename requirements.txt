@@ -1,0 +1,9 @@
+streamlit==1.66.1
+groq==1.7.0
+fastembed==0.9.0
+rank-bm25==0.2.2
+pandas==3.0.5
+numpy==2.5.3
+pypdf==5.9.0
+altair==6.3.0
+reportlab==5.0.1
