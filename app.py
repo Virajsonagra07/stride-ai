@@ -41,7 +41,7 @@ with st.sidebar:
     st.markdown(f"### 👟 {config.STORE_BRAND}")
     st.caption("AI shopping assistant · 3 stores · live stock")
     st.markdown("**System status**")
-    st.write(("🟢 LLM: `" + config.GROQ_MODEL + "` on Groq") if llm.available()
+    st.write(("🟢 LLM: `" + config._secret("GROQ_MODEL", config.GROQ_MODEL) + "` on Groq") if llm.available()
              else "🟡 LLM offline - deterministic mode (add GROQ_API_KEY)")
     st.write("🟢 Hybrid search: BM25 + dense embeddings" if retriever.Embedder.active()
              else "🟡 Search: BM25 + SQL (dense embeddings off)")

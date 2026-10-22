@@ -9,15 +9,21 @@ from . import config
 _client = None
 
 
+def _key() -> str:
+    # Read lazily so a key added in Streamlit Secrets after startup is picked up without a restart.
+    return config._secret("GROQ_API_KEY") or config.GROQ_API_KEY
+
+
 def available() -> bool:
-    return bool(config.GROQ_API_KEY) and "your_key" not in config.GROQ_API_KEY
+    k = _key()
+    return bool(k) and "your_key" not in k
 
 
 def _get():
     global _client
     if _client is None and available():
         from groq import Groq
-        _client = Groq(api_key=config.GROQ_API_KEY)
+        _client = Groq(api_key=_key())
     return _client
 
 
