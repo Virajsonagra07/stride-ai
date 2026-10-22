@@ -74,7 +74,7 @@ sku: like "SKU-0012" or null
 keywords: short English search phrase capturing style/features (e.g. "comfortable lightweight breathable")
 language: "hinglish" or "english"
 Hints: "chappal" = slippers; "joote"/"jute" = shoes; "number 9"/"no. 9" = size 9; "ke andar"/"se kam" = under;
-"2k" = 2000; "shaadi" = wedding. Policy questions (returns, exchange, warranty, size chart, payment, care) -> intent "policy".
+"2k" = 2000; "shaadi" = wedding; "mojari"/"jutti"/"kolhapuri" = ethnic (NOT slippers); "floaters" = sandals. Policy questions (returns, exchange, warranty, size chart, payment, care) -> intent "policy".
 Store timing/address questions -> "store_info"."""
 
 
@@ -184,6 +184,11 @@ def _clean(llm_out: dict, base: dict) -> dict:
         out["sku"] = sku.upper()
     if out["size"] is not None and not (1 <= out["size"] <= 13):
         out["size"] = base["size"]
+    # Exact lexicon hits (e.g. "mojari" -> ethnic) are high-precision: they beat the LLM's guess.
+    # The LLM fills the gaps the lexicon can't (paraphrases, implied gender, follow-ups).
+    for k in ("category", "color", "gender", "size", "max_price"):
+        if base.get(k) is not None:
+            out[k] = base[k]
     return out
 
 
